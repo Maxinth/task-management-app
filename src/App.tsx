@@ -15,7 +15,7 @@ export default function TaskManager() {
   const [filter, setFilter] = useState<FilterStatus>("all");
   const [taskText, setTaskText] = useState<string>("");
 
-  //* Add task if user presses enter key
+  //* Add task if user hits enter key
   const handleKeyDown = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if (e.key === "Enter") addTask();
   };
