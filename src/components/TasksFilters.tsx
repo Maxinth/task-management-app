@@ -12,7 +12,7 @@ const TasksFilters = ({ filter, setFilter }: TasksFiltersProps) => {
         <button
           key={status}
           onClick={() => setFilter(status)}
-          className={`px-3 py-1 rounded ${
+          className={`px-3 py-1 rounded cursor-pointer hover:scale-105 transition-all ease-in-out ${
             filter === status ? "bg-blue-500 text-white" : "bg-gray-200"
           }`}
         >
