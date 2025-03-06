@@ -1,14 +1,17 @@
 import { useState } from "react";
 import TaskInputBox from "./components/TaskInputBox";
+import TasksFilters from "./components/TasksFilters";
 interface Task {
   id: number;
   text: string;
   completed: boolean;
 }
 
+export type FilterStatus = "all" | "active" | "completed";
+
 export default function TaskManager() {
   const [tasks, setTasks] = useState<Task[]>([]);
-  const [filter, setFilter] = useState<"all" | "active" | "completed">("all");
+  const [filter, setFilter] = useState<FilterStatus>("all");
   const [taskText, setTaskText] = useState<string>("");
 
   //* Add task if user presses enter key
@@ -47,21 +50,7 @@ export default function TaskManager() {
       <h1 className="text-2xl font-bold text-center mb-4">Task Manager</h1>
 
       <TaskInputBox {...{ taskText, setTaskText, addTask, handleKeyDown }} />
-
-      {/* Filter Buttons */}
-      <div className="flex justify-center gap-2 mb-4">
-        {(["all", "active", "completed"] as const).map((status) => (
-          <button
-            key={status}
-            onClick={() => setFilter(status)}
-            className={`px-3 py-1 rounded ${
-              filter === status ? "bg-blue-500 text-white" : "bg-gray-200"
-            }`}
-          >
-            {status.charAt(0).toUpperCase() + status.slice(1)}
-          </button>
-        ))}
-      </div>
+      <TasksFilters {...{ filter, setFilter }} />
 
       {/* Task List */}
       <ul>
