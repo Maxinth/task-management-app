@@ -1,4 +1,6 @@
 import { FilterStatus, Task } from "../App";
+import { MdOutlineAutoDelete } from "react-icons/md";
+import { trimToLength } from "../../utils";
 
 interface TaskListProp {
   filteredTasks: Task[];
@@ -23,8 +25,10 @@ const TasksList = ({
         filteredTasks.map((task) => (
           <li
             key={task.id}
-            className={`flex justify-between items-center p-2 rounded mb-2 ${
-              task.completed ? "bg-green-100" : "bg-gray-100"
+            className={`flex justify-between items-center p-2 rounded duration-300 ease-in-out mb-2 ${
+              task.completed
+                ? "bg-green-100 hover:bg-green-200"
+                : "bg-gray-100 hover:bg-gray-200 "
             }`}
           >
             <div className="flex items-center gap-2">
@@ -36,11 +40,12 @@ const TasksList = ({
               />
 
               <span
-                className={`cursor-pointer ${
+                title={task.text}
+                className={`max-w-[200px] lg:min-w-[300px] ${
                   task.completed ? "line-through text-gray-400" : ""
                 }`}
               >
-                {task.text}
+                {trimToLength(task.text, 39)}
               </span>
             </div>
 
@@ -57,9 +62,9 @@ const TasksList = ({
             <button
               onClick={() => deleteTask(task.id)}
               title="Delete Task"
-              className="text-red-500 hover:text-red-700 cursor-pointer"
+              className="text-red-500 hover:text-red-700 cursor-pointer "
             >
-              ✖
+              <MdOutlineAutoDelete color="red" size={20} />
             </button>
           </li>
         ))
