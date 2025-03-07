@@ -6,7 +6,7 @@ const mockSetTaskText = jest.fn();
 const mockAddTask = jest.fn();
 const mockHandleKeyDown = jest.fn();
 
-describe("TaskInputBox Component", () => {
+describe("<TaskInputBox /> ", () => {
   it("renders input and button", () => {
     render(
       <TaskInputBox

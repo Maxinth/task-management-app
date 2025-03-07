@@ -1,7 +1,7 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import TasksFilters from "../components/TasksFilters";
 
-describe("TasksFilters Component", () => {
+describe("<TasksFilters /> ", () => {
   it("renders all filter buttons", () => {
     render(<TasksFilters filter="all" setFilter={jest.fn()} />);
 

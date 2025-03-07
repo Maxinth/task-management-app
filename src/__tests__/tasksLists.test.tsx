@@ -2,7 +2,7 @@ import { render, screen, fireEvent } from "@testing-library/react";
 import TasksList from "../components/TasksList";
 import { Task } from "../App";
 
-describe("TasksList Component", () => {
+describe("<TasksList /> ", () => {
   const sampleTasks: Task[] = [
     { id: 1, text: "Buy groceries", completed: false },
     { id: 2, text: "Walk the dog", completed: true },
