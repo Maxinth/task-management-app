@@ -62,11 +62,13 @@ export default function TaskManager() {
   });
 
   return (
-    <div className="max-w-2xl mx-auto mt-10 p-6 bg-white shadow-lg rounded-lg min-h-[400px]">
-      <h1 className="text-2xl font-bold text-center mb-4">Task Manager</h1>
-      <TaskInputBox {...{ taskText, setTaskText, addTask, handleKeyDown }} />
-      <TasksFilters {...{ filter, setFilter }} />
-      <TasksList {...{ filteredTasks, deleteTask, filter, toggleComplete }} />
-    </div>
+    <section className="w-screen h-screen bg-[ghostwhite] pt-20 ">
+      <div className="max-w-2xl mx-auto  p-6 bg-white shadow-lg rounded-lg min-h-[400px] ">
+        <h1 className="text-2xl font-bold text-center mb-4">Task Manager</h1>
+        <TaskInputBox {...{ taskText, setTaskText, addTask, handleKeyDown }} />
+        <TasksFilters {...{ filter, setFilter }} />
+        <TasksList {...{ filteredTasks, deleteTask, filter, toggleComplete }} />
+      </div>
+    </section>
   );
 }

@@ -1,3 +1,5 @@
+import { MdAdd } from "react-icons/md";
+
 interface TaskInputBoxProps {
   taskText: string;
   setTaskText: (text: string) => void;
@@ -24,11 +26,11 @@ const TaskInputBox = ({
       <button
         onClick={addTask}
         disabled={!taskText.trim()}
-        className={`bg-green-700 text-white px-4 py-2 rounded cursor-pointer hover:bg-green-600 duration-150 ease-in-out ${
+        className={`bg-gray-500 text-white px-4 py-2 rounded cursor-pointer hover:bg-gray-600 duration-150 ease-in-out ${
           !taskText.trim() ? "!cursor-not-allowed" : ""
         }`}
       >
-        Add
+        <MdAdd size={20} className="!scale-[1.4]" />
       </button>
     </div>
   );
