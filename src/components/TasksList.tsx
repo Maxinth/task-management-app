@@ -25,7 +25,7 @@ const TasksList = ({
         filteredTasks.map((task) => (
           <li
             key={task.id}
-            className={`flex justify-between items-center p-2 rounded duration-300 ease-in-out mb-2 ${
+            className={`flex justify-between items-center flex-wrap p-2 rounded duration-300 ease-in-out mb-2 ${
               task.completed
                 ? "bg-green-100 hover:bg-green-200"
                 : "bg-gray-100 hover:bg-gray-200 "
@@ -41,11 +41,19 @@ const TasksList = ({
 
               <span
                 title={task.text}
-                className={`max-w-[200px] min-w-[100px] md:min-w-[300px] ${
+                className={`hidden md:block max-w-[200px] min-w-[100px] md:min-w-[300px] ${
                   task.completed ? "line-through text-gray-400" : ""
                 }`}
               >
                 {trimToLength(task.text, 39)}
+              </span>
+              <span
+                title={task.text}
+                className={`md:hidden max-w-[200px] min-w-[200px] md:min-w-[300px] ${
+                  task.completed ? "line-through text-gray-400" : ""
+                }`}
+              >
+                {trimToLength(task.text, 18)}
               </span>
             </div>
 
