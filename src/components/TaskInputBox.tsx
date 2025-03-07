@@ -14,7 +14,7 @@ const TaskInputBox = ({
   handleKeyDown,
 }: TaskInputBoxProps) => {
   return (
-    <div className="flex gap-2 mb-4">
+    <div className="flex gap-2 mb-4 flex-wrap">
       <input
         type="text"
         value={taskText}

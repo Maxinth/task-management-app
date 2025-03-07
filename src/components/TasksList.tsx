@@ -41,7 +41,7 @@ const TasksList = ({
 
               <span
                 title={task.text}
-                className={`max-w-[200px] lg:min-w-[300px] ${
+                className={`max-w-[200px] min-w-[100px] md:min-w-[300px] ${
                   task.completed ? "line-through text-gray-400" : ""
                 }`}
               >
@@ -53,7 +53,7 @@ const TasksList = ({
               className={`text-xs font-semibold px-2 py-1 rounded ${
                 task.completed
                   ? "bg-green-500 text-white"
-                  : "bg-yellow-500 text-white"
+                  : "bg-black text-yellow-500"
               }`}
             >
               {task.completed ? "Completed" : "Active"}
@@ -62,7 +62,7 @@ const TasksList = ({
             <button
               onClick={() => deleteTask(task.id)}
               title="Delete Task"
-              className="text-red-500 hover:text-red-700 cursor-pointer "
+              className="text-red-500 hover:text-red-700 cursor-pointer ml-4 "
             >
               <MdOutlineAutoDelete color="red" size={20} />
             </button>
